@@ -70,10 +70,25 @@ One of the most curcial sub circuit of the GPIO is MOSFET driver. This drive tak
 
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/AND/Schematics.png" width=53% height=53%>
 
-
-
-
 ## Circuit Design
+
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/SCHEMATIC.png" width=100% height=53%>
+<p align="center">Fig 4(a). GPIO Schematic</p>
+
+The above figure represent the schematic of GPIO. The GPIO mainly consists of three section namely INPUT, OUTPUT, and INPUT PULL UP/DOWN. The ESD diodes are special arrangement of NMOS and the drop of ESP diode is nearly around 0.7V. The control signals are:
+
+* PU_PU_EN-----------------Enable Pull Up/Pull Down
+* INPUT_EN------------------Enable data at INPUT port
+* OUTPUT_EN----------------Enable Output 
+
+The data pins are:
+
+* PUD-------------------------Pull Up/Down state
+* DIGITAL_OUT---------------Output data
+* INPUT-----------------------Input port for 0.9V   
+* PAD-------------------------PAD is the I/O connection point
+
+
 ## Simulation
 
 ## Performance
@@ -81,4 +96,27 @@ One of the most curcial sub circuit of the GPIO is MOSFET driver. This drive tak
 ## Author
 ## Acknowledfements
 ## Referneces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
