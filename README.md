@@ -50,16 +50,25 @@ As the name suggests Level Shifter is used to convert the signal of one logic le
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Level_Shifter/Schematic.png" width=55% height=55%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Level_Shifter/Waveform.png" width=42% height=42%> 
 
 #### Schmitt Trigger:
+Schmitt Trigger plays an important role in converting the 3.3V signal arriving at the I/0 port into the 0.9V logic level which can be transmitter further. Schmitt Trigger has two important voltage threshold Vth+ and Vth-. When the input signal in above Vth+ the Schmitt Trigger outputs logic high and when the input signal is below Vth- the Schmitt Trigger outputs logic low. If the signal is between Vth+ and Vth- then the output of Schmitt Trigger does not change its state.
+
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Schmitt_Trigger/schematics.png" width=47% height=55%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Schmitt_Trigger/Waveform.png" width=50% height=50%> 
 
 #### MOSFET Driver:
+
+One of the most curcial sub circuit of the GPIO is MOSFET driver. This drive takes two input namely "EN" and "DATA IN". "EN" stands for enable and when this pin is high the output of the CMOS driven by this driver is either low or high depending on the data input value. If the EN pin is LOW then both PMOS and NMOS of CMOS are inactive this allow other circuitary to perform operations on the I/O port. Last but not the least, this drive has the feature of dead time in between the transistion from low to high. The dead time for between OUTPUT HIGH and OUTPUT LOW while going from  high to low is 5ns and 10ns while going from low to high.
+
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/Schematics.png" width=54% height=54%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/waveform.png" width=44% height=44%> 
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/ON%20DEAD%20TIME.png" width=49% height=49%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/OFF%20DEAD%20TIME.png" width=49% height=49%> 
 
-#### OR gate:
-<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Schematics.png" width=55% height=55%>      
+#### Components constructed using above components:
+* OR GATE
+
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/OR/Schematics.png" width=55% height=55%>      
      
-<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Waveform.png" width=53% height=53%>
+* AND GATE
+
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/AND/Schematics.png" width=53% height=53%>
 
 
 
