@@ -28,6 +28,8 @@ To know the behaviour of a system we must know the behaviour of the building blo
 * ### NMOS I-V Characteristics
 ![Id vs Vds at different Vgs](https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/NMOS.png)
 * ### PMOS I-V Characteristics
+![Id vs Vsd at different Vsg](https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/PMOS.png)
+
 ## Sub-Circuit Components
 ## Circuit Design
 ## Simulation
