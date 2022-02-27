@@ -30,7 +30,7 @@ To know the behaviour of a system we must know the behaviour of the building blo
 
 ## Sub-Circuit Components
 The list and breif descriptio of sub-circuit components used in this build are as follows:
-* #### CMOS Inverter/ NOT gate:
+#### CMOS Inverter/ NOT gate:
 This is the first and the very basic building block of the system. The output of the CMOS inverter is balanced by making the width of PMOS double the width of NMOS. The push-pull current capacity of this CMOS inverter is 30uA and the gate is made to operate at 0.9V logic level. The circuit design and Voltage transfer characteristics of inverter are as follows:
 
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOT/NOT_Schematic.png" width=38% height=38%>      <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOT/VTC.png" width=54% height=54%>
