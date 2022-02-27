@@ -33,12 +33,12 @@ The list and breif descriptio of sub-circuit components used in this build are a
 #### CMOS Inverter/ NOT gate:
 This is the first and the very basic building block of the system. The output of the CMOS inverter is balanced by making the width of PMOS double the width of NMOS. The push-pull current capacity of this CMOS inverter is 30uA and the operating voltage is 0.9V. The circuit design and Voltage transfer characteristics of inverter are as follows:
 
-<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOT/NOT_Schematic.png" width=38% height=38%>      <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOT/VTC.png" width=54% height=54%>
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOT/NOT_Schematic.png" width=41% height=41%>      <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOT/VTC.png" width=58% height=58%>
 
 #### NOR gate:
 Like any simple CMOS based nor gate this gate is made using two PMOS in series on HIGH side and two NMOS in parallel in low side. To cover the work case scenario when the output is to be pulled high, as the two PMOS resistance add up, so the width of PMOS taken is double the width of PMOS in balanced CMOS ciruit.
 
-<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOR/Schematics.png" width=40% height=40%>      <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOR/Waveform.png" width=53% height=53%>
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOR/Schematics.png" width=42% height=42%>      <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOR/Waveform.png" width=56% height=56%>
 
 #### NAND gate:
 Unlike NOR in NAND we have two PMOS in parallel in HIGH side and two NMOS in serier in LOW side. In worst case scenario when the output is to be pulled low, due to series connection of NMOS the resistance adds up so to compensate this the NMOS width shoud be double of the NMOS width of a standard CMOS inverter.
@@ -68,11 +68,11 @@ One of the most curcial sub circuit of the GPIO is MOSFET driver. This drive tak
      
 * AND GATE
 
-<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/AND/Schematics.png" width=53% height=53%>
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/AND/Schematics.png" width=55% height=55%>
 
 ## Circuit Design
 
-<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/SCHEMATIC.png" width=100% height=53%>
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/SCHEMATIC.png" width=100% height=100%>
 <p align="center">Fig 4(a). GPIO Schematic</p>
 
 The above figure represent the schematic of GPIO. The GPIO mainly consists of three section namely INPUT, OUTPUT, and INPUT PULL UP/DOWN. The ESD diodes are special arrangement of NMOS and the drop of ESP diode is nearly around 0.7V. The control signals are:
@@ -88,8 +88,41 @@ The data pins are:
 * INPUT-----------------------Input port for 0.9V   
 * PAD-------------------------PAD is the I/O connection point
 
+## Working
+
+The whole block of GPIO is divided into three blocks which are INPUT PULL UP/DOWN, INPUT, and OUTPUT. The working of these three blocks are explains below:
+
+### INPUT PULL UP/DOWN
+A 10 K Ohm resistor is attached to the output pad which is driven by the output of complementary MOSFETS M14 and M13. As the output port can be used for other purposes the circuit is made to allow the CMOS output to go into any three states which are PULL UP, PULL DOWN, and HIGH IMPEDANCE. In PULL UP mode the 10 K resistance is connected to 3.3V through M14 and in PULL DOWN mode the same resistor is connected to VSS or 0V through M13. Talking about HIGH IMPEDANCE state, it is acheived by turning both the PMOS(M14) and NMOS(M13) OFF supplying 3.3.3V to PMOS and 0V to NMOS. In this mode other other sub-circuits of GPIO can take control of the output port. As the MOSFETS operate at 3.3V running then with 0.9V logic won't be of any use, so the 0.9V is converted in 3.3V logic using the *"Level Shifter"*. The logic of applied on the gates of PMOS and NMOS are as follows:
+
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/PUPD/PMOS%20Truth%20Table.png" align="justify" width=25% height=25%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/PUPD/NMOST%20Truth%20Table.png" align="justify" width=25% height=25%>
+
+
+
+### INPUT
+
+INPUT is enabled or disable by the INPUT_EN (logic high) pin. This sub-circuit of the GPIO consist of one AND gate and a Schmitt Trigger. Here the Schmitt Trigger get whatever is on the I/O port and is between 3.3V to 0V, it then converts the signal to 0.9V logic. Schmitt Trigger is used because it rejects a band of voltage range which migh otherwise had changed the output.
+
+### OUTPUT
+
+Going with the flow OUTPUT is enable or disable by the OUTPUT_EN (active high) control signal. The circuit at GPIO level consists of CMOS with high current capability and a MOSFET driver to drive the Gate of these MOSFETS. The drive inbuilt RC based dead time circuit. As the MOSFETS driven by this driver work in mA range the current spike during transition from low to high may affect the circuit performance. To eliminate this the PMOS it turned 5ns after the NMOS is turned off and when swithcing from HIGH to LOW the PMOS is turned OFF 10ns before the NMOS turns on.
 
 ## Simulation
+
+To provide different combination of control signal, output data and PU/PD states we are using the pulse generator from the analogLib. All the pulse sources are operating on 50% duty cycle. To generate analog signal at the output PAD a sine wave source is connected with the PAD by the means of 1M Ohm, this big resistance allow us to simulate all I/O features at same time. The description of timeperiod and frequency of different pulses are as follows:
+
+> INPUT_EN------------------4000ns | 250Khz (Square Wave)
+
+> OUTPUT_EN----------------2000ns | 500Khz (Square Wave)
+
+> PU_PD_EN------------------2000ns | 500Khz (Square Wave)
+
+> DIGITAL_OUT---------------0066ns | 15.1Mhz (Square Wave)
+
+> PUD-------------------------0176ns | 5.68Mhz (Square Wave)
+
+> EXTENAL_INPUT------------0500ns | 2.00Mhz (Sine Wave)
+
 
 ## Performance
 ## Conclusion
