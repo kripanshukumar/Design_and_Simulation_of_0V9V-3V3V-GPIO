@@ -26,8 +26,7 @@ Custom Compiler is integrated with Synopsys’ PrimeSim™ HSPICE®, PrimeSim SP
 To know the behaviour of a system we must know the behaviour of the building blocks. The analysis and simulations are done to get the I-V characteristics of both 28nm NMOS and PMOS at the width of 0.1 um. 
 
 * ### NMOS I-V Characteristics
-<figure><img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/NMOS.png" width=50% height=50%>
-<figcaption align="center">NMOS I-V Characteristics</figcaption></figure><img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/PMOS.png" width=50% height=50%>
+<figure><img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/NMOS.png" width=50% height=50%><figcaption align="center">NMOS I-V Characteristics</figcaption></figure><img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/PMOS.png" width=50% height=50%>
 
 
 * ### PMOS I-V Characteristics
