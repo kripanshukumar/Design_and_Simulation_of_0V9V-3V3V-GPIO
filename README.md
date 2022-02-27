@@ -38,6 +38,9 @@ This is the first and the very basic building block of the system. The output of
 #### NOR gate:
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOR/Schematics.png" width=40% height=40%>      <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOR/Waveform.png" width=53% height=53%>
 
+#### OR gate:
+<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Schematics.png" width=40% height=40%>      <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Waveform.png" width=53% height=53%>
+
 ## Circuit Design
 ## Simulation
 
