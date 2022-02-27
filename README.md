@@ -20,12 +20,12 @@ Wether it is a Microcontrollers, FPGAs or some ASIC they all have one thing in c
 The two major softwares without which this project was impossible are Synopsys Custom Compiler and Synopsys Primewave. A huge thanks to the Synposys India and IIT Hyderabad for providing the access to these elite softwares.
 
 Custom Compiler™ is a fresh, modern solution for full-custom analog, custom digital, and mixed-signal integrated circuit (IC) design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. Designed to handle the most challenging requirements of FinFET process technologies, it delivers industry-leading productivity, performance, and ease-of-use while remaining easy to adopt for users of legacy tools.
-Custom Compiler is integrated with Synopsys’ PrimeSim™ HSPICE®, PrimeSim SPICE, PrimeSim Pro, and PrimeSim XA circuit simulators and PrimeSim Reliability Analyis technologies. Integrations with many third-party simulators are also available. Simulation support includes PrimeWave™ Design Environment, a comprehensive and flexible environment for setup, run and debug for corners, multi-testbench sweeps, Monte Carlo, Aging/EMIR, and other analyses. PrimeWave Design Environment features a powerful TCL-based scripting capability enabling customization of simulation campaigns including grid-based job distribution and monitoring. PrimeWave Design Environment has a built-in high-capacity waveform viewer that supports advanced visualization and charting capabilities including statistical analysis, histograms, and scatterplots. It also provides HTML-based reporting to facilitate design reviews.
+PrimeWave Design Environment features a powerful TCL-based scripting capability enabling customization of simulation campaigns including grid-based job distribution and monitoring. PrimeWave Design Environment has a built-in high-capacity waveform viewer that supports advanced visualization and charting capabilities including statistical analysis, histograms, and scatterplots. It also provides HTML-based reporting to facilitate design reviews.
 
 ## CMOS Analysis
 To know the behaviour of a system we must know the behaviour of the building blocks. The analysis and simulations are done to get the I-V characteristics of both 28nm NMOS and PMOS at the width of 0.1 um. 
 
-####NMOS and PMOS I-V Characteristics
+#### NMOS and PMOS I-V Characteristics
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/NMOS.png" width=50% height=50%><img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/PMOS.png" width=50% height=50%>
 
 ## Sub-Circuit Components
