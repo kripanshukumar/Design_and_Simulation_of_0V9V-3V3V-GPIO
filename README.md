@@ -19,8 +19,12 @@ Wether it is a Microcontrollers, FPGAs or some ASIC they all have one thing in c
 ## Software Used
 The two major softwares without which this project was impossible are Synopsys Custom Compiler and Synopsys Primewave. A huge thanks to the Synposys India and IIT Hyderabad for providing the access to these elite softwares.
 
-Custom Compiler™ is a fresh, modern solution for full-custom analog, custom digital, and mixed-signal integrated circuit (IC) design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. Designed to handle the most challenging requirements of FinFET process technologies, it delivers industry-leading productivity, performance, and ease-of-use while remaining easy to adopt for users of legacy tools.
-PrimeWave Design Environment features a powerful TCL-based scripting capability enabling customization of simulation campaigns including grid-based job distribution and monitoring. PrimeWave Design Environment has a built-in high-capacity waveform viewer that supports advanced visualization and charting capabilities including statistical analysis, histograms, and scatterplots. It also provides HTML-based reporting to facilitate design reviews.
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Synopsys/setup%20screen.png" width=50% height=50%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Synopsys/Home%20page.png" width=40% height=50%>
+
+* **Custom Compiler™**
+ is a fresh, modern solution for full-custom analog, custom digital, and mixed-signal integrated circuit (IC) design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. Designed to handle the most challenging requirements of FinFET process technologies, it delivers industry-leading productivity, performance, and ease-of-use while remaining easy to adopt for users of legacy tools.
+
+* **PrimeWave Design Environment** features a powerful TCL-based scripting capability enabling customization of simulation campaigns including grid-based job distribution and monitoring. PrimeWave Design Environment has a built-in high-capacity waveform viewer that supports advanced visualization and charting capabilities including statistical analysis, histograms, and scatterplots. It also provides HTML-based reporting to facilitate design reviews.
 
 ## CMOS Analysis
 To know the behaviour of a system we must know the behaviour of the building blocks. The analysis and simulations are done to get the I-V characteristics of both 28nm NMOS and PMOS at the width of 0.1 um. 
@@ -61,7 +65,7 @@ One of the most curcial sub circuit of the GPIO is MOSFET driver. This drive tak
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/Schematics.png" width=54% height=54%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/waveform.png" width=44% height=44%> 
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/ON%20DEAD%20TIME.png" width=49% height=49%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/OFF%20DEAD%20TIME.png" width=49% height=49%> 
 
-#### Components constructed using above components:
+#### Gates constructed using above components:
 * OR GATE
 
 <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/OR/Schematics.png" width=55% height=55%>      
@@ -78,8 +82,8 @@ One of the most curcial sub circuit of the GPIO is MOSFET driver. This drive tak
 The above figure represent the schematic of GPIO. The GPIO mainly consists of three section namely INPUT, OUTPUT, and INPUT PULL UP/DOWN. The ESD diodes are special arrangement of NMOS and the drop of ESP diode is nearly around 0.7V. The control signals are:
 
 * PU_PU_EN-----------------Enable Pull Up/Pull Down
-* INPUT_EN------------------Enable data at INPUT port
-* OUTPUT_EN----------------Enable Output 
+* INPUT_EN-----------------Enable data at INPUT port
+* OUTPUT_EN---------------Enable Output 
 
 The data pins are:
 
@@ -90,7 +94,7 @@ The data pins are:
 
 ## Working
 
-The whole block of GPIO is divided into three blocks which are INPUT PULL UP/DOWN, INPUT, and OUTPUT. The working of these three blocks are explains below:
+The whole circuit of GPIO is divided into three blocks which are INPUT PULL UP/DOWN, INPUT, and OUTPUT. The working of these three blocks are explains below:
 
 ### INPUT PULL UP/DOWN
 A 10 K Ohm resistor is attached to the output pad which is driven by the output of complementary MOSFETS M14 and M13. As the output port can be used for other purposes the circuit is made to allow the CMOS output to go into any three states which are PULL UP, PULL DOWN, and HIGH IMPEDANCE. In PULL UP mode the 10 K resistance is connected to 3.3V through M14 and in PULL DOWN mode the same resistor is connected to VSS or 0V through M13. Talking about HIGH IMPEDANCE state, it is acheived by turning both the PMOS(M14) and NMOS(M13) OFF supplying 3.3.3V to PMOS and 0V to NMOS. In this mode other other sub-circuits of GPIO can take control of the output port. As the MOSFETS operate at 3.3V running then with 0.9V logic won't be of any use, so the 0.9V is converted in 3.3V logic using the *"Level Shifter"*. The logic of applied on the gates of PMOS and NMOS are as follows:
@@ -108,7 +112,7 @@ INPUT is enabled or disable by the INPUT_EN (logic high) pin. This sub-circuit o
 Going with the flow OUTPUT is enable or disable by the OUTPUT_EN (active high) control signal. The circuit at GPIO level consists of CMOS with high current capability and a MOSFET driver to drive the Gate of these MOSFETS. The drive inbuilt RC based dead time circuit. As the MOSFETS driven by this driver work in mA range the current spike during transition from low to high may affect the circuit performance. To eliminate this the PMOS it turned 5ns after the NMOS is turned off and when swithcing from HIGH to LOW the PMOS is turned OFF 10ns before the NMOS turns on.
 
 ## Simulation
-
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/Simulation/SIMULATION.png" align="justify" width=100% height=100%><p align="center">Fig 6(a). Simulation Circuit</p>
 To provide different combination of control signal, output data and PU/PD states we are using the pulse generator from the analogLib. All the pulse sources are operating on 50% duty cycle. To generate analog signal at the output PAD a sine wave source is connected with the PAD by the means of 1M Ohm, this big resistance allow us to simulate all I/O features at same time. The description of timeperiod and frequency of different pulses are as follows:
 
 > INPUT_EN------------------4000ns | 250Khz (Square Wave)
@@ -123,37 +127,31 @@ To provide different combination of control signal, output data and PU/PD states
 
 > EXTENAL_INPUT------------0500ns | 2.00Mhz (Sine Wave)
 
-### Waveform
-* Complete Simulation
+### Waveforms
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/Simulation/Waveform.png" align="justify" width=100% height=100%><p align="center">Fig 6(b). ALL MODES</p>
 
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/Simulation/INPUT%20MODE.png" align="justify" width=100% height=100%><p align="center">Fig 6(c). INPUT MODE</p>
 
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/Simulation/INPUT%20PU_PD%20MODE.png" align="justify" width=100% height=100%><p align="center">Fig 6(d). INPUT PULL UP/PULL DOWN MODE</p>
 
-## Performance
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/GPIO/Simulation/OUTPUT%20MODE.png" align="justify" width=100% height=100%><p align="center">Fig 6(e). OUTPUT MODE</p>
+
 ## Conclusion
+This repository presents the design and simulation of 0.9V-3.3V GPIO on 28nm technology node and offers reference for basic GPIO designing. Future works can include addition of INTERRUPT, ANALOG INPUT and PIN CAPTURE.
 ## Author
-## Acknowledfements
+Kripanshu Kumar, B.Eng(ECE), Punjab University, Chandigarh
+
+## Acknowledgements
+
+- [Kunal Ghosh, Co-founder, VSD Corp. Pvt Ltd.](https://www.linkedin.com/in/kunal-ghosh-vlsisystemdesign-com-28084836?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B0xcWjpLDThSEo6S9UPO9Tw%3D%3D)
+- Chinmay Panda, IIT Hyderabad
+- [Synopsis Team/Company](synopsys.com/company/contact-synopsys/office-locations/india/about-synopsys-india.html)
+- [IIT Hyderabad](https://www.iith.ac.in/events/2022/02/15/Cloud-Based-Analog-IC-Design-Hackathon/)
+- Active and vibrant hackathon community
+
 ## Referneces
+1 GPIO DESIGN, LAYOUT, SIMULATION AND ESD CLAMP PLACEMENT CALCULATOR by Shiju Abraham.
 
+2 STM32 microcontroller GPIO configuration for hardware settings and low-power consumption.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+3 Design and Implementation of General-Purpose Input Output (GPIO) Protocol Bhavnil Patel, Bhargav TarparaP.
