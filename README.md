@@ -41,6 +41,9 @@ This is the first and the very basic building block of the system. The output of
 #### NAND gate:
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NAND/schematics.png" width=37% height=37%>  <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NAND/waveform.png" width=60% height=60%>
 
+#### 0.9V to 3.3v Level Shifter:
+<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/Level_Shifter/Schematic.png" width=37% height=37%>  <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/Level_Shifter/Waveform.png" width=60% height=60%>
+
 #### OR gate:
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Schematics.png" width=55% height=55%>      
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Waveform.png" width=53% height=53%>
