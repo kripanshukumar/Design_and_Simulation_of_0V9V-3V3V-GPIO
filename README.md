@@ -26,27 +26,43 @@ PrimeWave Design Environment features a powerful TCL-based scripting capability 
 To know the behaviour of a system we must know the behaviour of the building blocks. The analysis and simulations are done to get the I-V characteristics of both 28nm NMOS and PMOS at the width of 0.1 um. 
 
 #### NMOS and PMOS I-V Characteristics
-<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/NMOS.png" width=50% height=50%><img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/MOS_Characteristics/PMOS.png" width=50% height=50%>
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/MOS_Characteristics/NMOS.png" width=50% height=50%><img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/MOS_Characteristics/PMOS.png" width=50% height=50%>
 
 ## Sub-Circuit Components
 The list and breif descriptio of sub-circuit components used in this build are as follows:
 #### CMOS Inverter/ NOT gate:
-This is the first and the very basic building block of the system. The output of the CMOS inverter is balanced by making the width of PMOS double the width of NMOS. The push-pull current capacity of this CMOS inverter is 30uA and the gate is made to operate at 0.9V logic level. The circuit design and Voltage transfer characteristics of inverter are as follows:
+This is the first and the very basic building block of the system. The output of the CMOS inverter is balanced by making the width of PMOS double the width of NMOS. The push-pull current capacity of this CMOS inverter is 30uA and the operating voltage is 0.9V. The circuit design and Voltage transfer characteristics of inverter are as follows:
 
-<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOT/NOT_Schematic.png" width=38% height=38%>      <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOT/VTC.png" width=54% height=54%>
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOT/NOT_Schematic.png" width=38% height=38%>      <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOT/VTC.png" width=54% height=54%>
 
 #### NOR gate:
-<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOR/Schematics.png" width=40% height=40%>      <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NOR/Waveform.png" width=53% height=53%>
+Like any simple CMOS based nor gate this gate is made using two PMOS in series on HIGH side and two NMOS in parallel in low side. To cover the work case scenario when the output is to be pulled high, as the two PMOS resistance add up, so the width of PMOS taken is double the width of PMOS in balanced CMOS ciruit.
+
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOR/Schematics.png" width=40% height=40%>      <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NOR/Waveform.png" width=53% height=53%>
 
 #### NAND gate:
-<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NAND/schematics.png" width=37% height=37%>  <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/NAND/waveform.png" width=60% height=60%>
+Unlike NOR in NAND we have two PMOS in parallel in HIGH side and two NMOS in serier in LOW side. In worst case scenario when the output is to be pulled low, due to series connection of NMOS the resistance adds up so to compensate this the NMOS width shoud be double of the NMOS width of a standard CMOS inverter.
+
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NAND/schematics.png" width=37% height=37%>  <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/NAND/waveform.png" width=60% height=60%>
 
 #### 0.9V to 3.3v Level Shifter:
-<img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/Level_Shifter/Schematic.png" width=50% height=50%>
+As the name suggests Level Shifter is used to convert the signal of one logic level to a different logic level, in this case we are converting a 0.9V logic to 3.3V logic. This device is use to convert the input signal of 0.9V to 3.3V so that the CMOS working at 3.3V can be operated properly.
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Level_Shifter/Schematic.png" width=55% height=55%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Level_Shifter/Waveform.png" width=42% height=42%> 
+
+#### Schmitt Trigger:
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Schmitt_Trigger/schematics.png" width=47% height=55%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Schmitt_Trigger/Waveform.png" width=50% height=50%> 
+
+#### MOSFET Driver:
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/Schematics.png" width=54% height=54%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/waveform.png" width=44% height=44%> 
+<img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/ON%20DEAD%20TIME.png" width=49% height=49%> <img src="https://raw.githubusercontent.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/main/Sub_Circuits/Driver/OFF%20DEAD%20TIME.png" width=49% height=49%> 
 
 #### OR gate:
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Schematics.png" width=55% height=55%>      
+     
 <img src="https://github.com/kripanshukumar/Design_and_Simulation_of_0.9V-3.3V-GPIO_based_on_CMOS_28nm_Technology/blob/main/Sub_Circuits/OR/Waveform.png" width=53% height=53%>
+
+
+
 
 ## Circuit Design
 ## Simulation
